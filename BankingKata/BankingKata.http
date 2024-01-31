@@ -1,0 +1,6 @@
+@BankingKata_HostAddress = http://localhost:5281
+
+GET {{BankingKata_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
