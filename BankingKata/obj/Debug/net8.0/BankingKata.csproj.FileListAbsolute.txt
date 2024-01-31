@@ -5,6 +5,10 @@ C:\Users\amargraff\source\repos\BankingKata\BankingKata\bin\Debug\net8.0\Banking
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\bin\Debug\net8.0\BankingKata.runtimeconfig.json
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\bin\Debug\net8.0\BankingKata.dll
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\bin\Debug\net8.0\BankingKata.pdb
+C:\Users\amargraff\source\repos\BankingKata\BankingKata\bin\Debug\net8.0\FastEndpoints.dll
+C:\Users\amargraff\source\repos\BankingKata\BankingKata\bin\Debug\net8.0\FastEndpoints.Attributes.dll
+C:\Users\amargraff\source\repos\BankingKata\BankingKata\bin\Debug\net8.0\FastEndpoints.Messaging.Core.dll
+C:\Users\amargraff\source\repos\BankingKata\BankingKata\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -16,6 +20,7 @@ C:\Users\amargraff\source\repos\BankingKata\BankingKata\obj\Debug\net8.0\Banking
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\obj\Debug\net8.0\BankingKata.csproj.CoreCompileInputs.cache
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\obj\Debug\net8.0\BankingKata.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\obj\Debug\net8.0\BankingKata.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\amargraff\source\repos\BankingKata\BankingKata\obj\Debug\net8.0\BankingKata.sourcelink.json
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\amargraff\source\repos\BankingKata\BankingKata\obj\Debug\net8.0\staticwebassets\msbuild.BankingKata.Microsoft.AspNetCore.StaticWebAssets.props

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BankingKata")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8a106a81b1cf6d2b74ad2008769f2f6bf026fa9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2e573c5d7bec367cca03e1a466653e400c705ec")]
 [assembly: System.Reflection.AssemblyProductAttribute("BankingKata")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BankingKata")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

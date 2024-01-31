@@ -8,11 +8,49 @@
     ".NETCoreApp,Version=v8.0": {
       "BankingKata/1.0.0": {
         "dependencies": {
+          "FastEndpoints": "5.21.2",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.19.5",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
           "BankingKata.dll": {}
+        }
+      },
+      "FastEndpoints/5.21.2": {
+        "dependencies": {
+          "FastEndpoints.Attributes": "5.21.2",
+          "FastEndpoints.Messaging.Core": "5.21.2",
+          "FluentValidation": "11.9.0"
+        },
+        "runtime": {
+          "lib/net8.0/FastEndpoints.dll": {
+            "assemblyVersion": "5.21.2.0",
+            "fileVersion": "5.21.2.0"
+          }
+        }
+      },
+      "FastEndpoints.Attributes/5.21.2": {
+        "runtime": {
+          "lib/netstandard2.0/FastEndpoints.Attributes.dll": {
+            "assemblyVersion": "5.21.2.0",
+            "fileVersion": "5.21.2.0"
+          }
+        }
+      },
+      "FastEndpoints.Messaging.Core/5.21.2": {
+        "runtime": {
+          "lib/netstandard2.1/FastEndpoints.Messaging.Core.dll": {
+            "assemblyVersion": "5.21.2.0",
+            "fileVersion": "5.21.2.0"
+          }
+        }
+      },
+      "FluentValidation/11.9.0": {
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.9.0.0"
+          }
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {},
@@ -70,6 +108,34 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "FastEndpoints/5.21.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RWiTfQGHy4QLibIpI2nJZ5FltmfB27CV2ZJdHUeN5sEZ3OcinP0JUsatRPDEYQIg03T4dbeWv/NgzNVSwG9d6Q==",
+      "path": "fastendpoints/5.21.2",
+      "hashPath": "fastendpoints.5.21.2.nupkg.sha512"
+    },
+    "FastEndpoints.Attributes/5.21.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/wvEjOgX+odAijiudfZvsizFIiJQ58MtlU3+3ehFbYLM8EJfySxhLs7FcxQ2t0jjVKmUfFX7++JIA0OtouFW8w==",
+      "path": "fastendpoints.attributes/5.21.2",
+      "hashPath": "fastendpoints.attributes.5.21.2.nupkg.sha512"
+    },
+    "FastEndpoints.Messaging.Core/5.21.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TFsoHdSWQrJEa5R5FFuecVrnsI5L2oc7JRtD1SaF4L7heKO5Eyv3mbGBvtk2n1HFI7gjXjHz1OnCwu7RmqJdyg==",
+      "path": "fastendpoints.messaging.core/5.21.2",
+      "hashPath": "fastendpoints.messaging.core.5.21.2.nupkg.sha512"
+    },
+    "FluentValidation/11.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VneVlTvwYDkfHV5av3QrQ0amALgrLX6LV94wlYyEsh0B/klJBW7C8y2eAtj5tOZ3jH6CAVpr4s1ZGgew/QWyig==",
+      "path": "fluentvalidation/11.9.0",
+      "hashPath": "fluentvalidation.11.9.0.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "type": "package",
