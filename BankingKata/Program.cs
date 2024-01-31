@@ -1,4 +1,8 @@
 using FastEndpoints;
+using FastEndpoints.Security;
+using FastEndpoints.Swagger;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +12,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddFastEndpoints();
+builder.Services
+    .AddFastEndpoints()
+    .SwaggerDocument();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,5 +31,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseFastEndpoints();
+app.UseAuthentication()
+   .UseAuthorization()
+   .UseFastEndpoints()
+   .UseSwaggerGen();
 app.Run();

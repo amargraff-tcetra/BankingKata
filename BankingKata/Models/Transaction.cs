@@ -7,5 +7,6 @@
         public DateTime date_time { get; set; }
         public decimal amount { get; set; }
         public decimal balance { get; set; }
+        public bool success { get; set; }
     }
 }
