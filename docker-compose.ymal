@@ -1,5 +1,4 @@
 services:
-
   banking_kata_api:
     build: 
       context: ./BankingKata/.
