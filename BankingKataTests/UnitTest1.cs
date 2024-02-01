@@ -5,7 +5,6 @@ namespace BankingKataTests
         [Fact]
         public void Test1()
         {
-
         }
     }
 }

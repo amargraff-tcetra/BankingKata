@@ -43,6 +43,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.28, )"
+            },
             "FastEndpoints": {
               "target": "Package",
               "version": "[5.21.2, )"
@@ -54,6 +58,10 @@
             "FastEndpoints.Swagger": {
               "target": "Package",
               "version": "[5.21.2, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.5, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
