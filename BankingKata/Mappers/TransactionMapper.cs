@@ -23,6 +23,7 @@ namespace BankingKata.Mappers
                     transaction.amount = -1 * r.amount;
                     break;
                 default:
+                    transaction.amount = 0;
                     break;
             }
 
