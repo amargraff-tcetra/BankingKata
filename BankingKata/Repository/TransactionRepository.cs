@@ -13,7 +13,7 @@ namespace BankingKata.Repository
     {
         //IDbConnection _connection;
         private readonly BankDbContext _context;
-        public TransactionRepository( BankDbContext context)
+        public TransactionRepository(BankDbContext context)
         {
             //dapper
             //_connection = new SqlConnection(configuration.GetSection("DB_CONNECTION_STRING").Value);

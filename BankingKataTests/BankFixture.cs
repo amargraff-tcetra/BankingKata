@@ -1,29 +1,40 @@
 ﻿using BankingKata.Contexts;
-using Castle.Core.Configuration;
+using BankingKata.Repository;
+using BankingKata.Services;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace BankingKataTests
 {
     public class BankFixture: IDisposable
     {
-        public BankDbContext Context { get;}
+        public BankDbContext Context { get; set; } = null!;
+        public TransactionRepository TransactionRepository { get; private set; } = null!;
+        public TransactionService TransactionService { get; private set; } = null!;
+
 
         public BankFixture()
         {
-            var dbContextOptions = new DbContextOptionsBuilder<BankDbContext>()
-                .UseInMemoryDatabase(databaseName: "Bank")
-                        .Options;
-            Context = new BankDbContext(dbContextOptions);
+            ResetFixture();
         }
 
         public void Dispose()
         {
-            Context.Dispose();
+            Context.DisposeAsync();
+        }
+
+        public void ResetFixture()
+        {
+            var dbName = Guid.NewGuid().ToString();
+            var dbContextOptions = new DbContextOptionsBuilder<BankDbContext>()
+                .UseInMemoryDatabase(databaseName: dbName)
+                .Options;
+            Context = new BankDbContext(dbContextOptions);
+            TransactionRepository = new TransactionRepository(Context);
+            TransactionService = new TransactionService(TransactionRepository);
         }
     }
+
+    [CollectionDefinition("BankFixtureCollection")]
+    public class BankFixtureCollection : ICollectionFixture<BankFixture> { }
 }

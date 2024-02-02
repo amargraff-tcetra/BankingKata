@@ -21,7 +21,8 @@ var useInMemoryDatabase = builder.Configuration.GetValue<bool>("USE_IN_MEMORY_DA
 
 if (useInMemoryDatabase)
 {
-    builder.Services.AddDbContext<BankDbContext>(options => options.UseInMemoryDatabase("InMemoryDatabase"));
+    var dbName = Guid.NewGuid().ToString();
+    builder.Services.AddDbContext<BankDbContext>((options,context) => context.UseInMemoryDatabase(dbName));
 }
 else
 {
