@@ -1,6 +1,8 @@
-﻿using BankingKata.Models;
+﻿using BankingKata.Contexts;
+using BankingKata.Models;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace BankingKata.Repository
@@ -9,15 +11,20 @@ namespace BankingKata.Repository
 
     public class TransactionRepository: IRepository<Transaction>
     {
-        IDbConnection _connection;
-        public TransactionRepository(IConfiguration configuration)
+        //IDbConnection _connection;
+        private readonly BankDbContext _context;
+        public TransactionRepository( BankDbContext context)
         {
-            _connection = new SqlConnection(configuration.GetSection("DB_CONNECTION_STRING").Value);
+            //dapper
+            //_connection = new SqlConnection(configuration.GetSection("DB_CONNECTION_STRING").Value);
+            //EF (for in memory db testing)
+            _context = context;
         }
 
         public async Task<List<Transaction>> GetAllAsync()
         {
-            var transactions = await _connection.QueryAsync<Transaction>("SELECT * FROM transaction");
+            //var transactions = await _connection.QueryAsync<Transaction>("SELECT * FROM transaction");
+            var transactions = await _context.Transaction.Select(t => t).ToListAsync();
             return transactions.ToList();
         }
 
@@ -33,9 +40,12 @@ namespace BankingKata.Repository
             throw new NotImplementedException();
         }
 
-        public Task<int> AddAsync(Transaction transaction)
+        public async Task<int> AddAsync(Transaction transaction)
         {
-            throw new NotImplementedException();
+            //return await _connection.ExecuteAsync("INSERT INTO transaction (account_id, amount, date_time) VALUES @account_id, @amount, @date_time", transaction);
+            await _context.Transaction.AddAsync(transaction);
+            _context.SaveChanges();
+            return transaction.id;
         }
 
         public Task<bool> DeleteAsync(int id)

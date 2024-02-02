@@ -24,6 +24,7 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "swagger",
+      "USE_IN_MEMORY_DATABASE": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "DB_CONNECTION_STRING": "Data Source=banking_database,1433;Initial Catalog=Bank;Persist Security Info=True;User ID=sa;Password=SQLserver123!;TrustServerCertificate=True"
@@ -33,6 +34,7 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "USE_IN_MEMORY_DATABASE": true,
       "environmentVariables": {
         "ASPNETCORE_HTTPS_PORTS": "8081",
         "ASPNETCORE_HTTP_PORTS": "8080",
