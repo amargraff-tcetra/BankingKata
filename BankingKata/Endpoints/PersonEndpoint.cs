@@ -1,5 +1,6 @@
 ﻿using BankingKata.Models.DTOs;
 using FastEndpoints;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BankingKata.Endpoints
 {
@@ -13,7 +14,7 @@ namespace BankingKata.Endpoints
 
         public override async Task HandleAsync(PersonRequest req, CancellationToken ct)
         {
-            await SendAsync(new()
+            await SendAsync(new PersonResponse()
             {
                 FullName = req.FirstName + " " + req.LastName,
                 IsOver18 = req.Age > 18
