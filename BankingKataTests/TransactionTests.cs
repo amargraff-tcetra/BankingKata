@@ -2,8 +2,11 @@
 using BankingKata.Mappers;
 using BankingKata.Models;
 using BankingKata.Models.DTOs;
+using BankingKata.Repository;
+using BankingKata.Services;
 using FakeItEasy;
 using FastEndpoints;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,6 +76,76 @@ namespace BankingKataTests
 
             // Assert
             Assert.Equal(0.0m, transaction.amount);
+        }
+
+        [Fact]
+        public async Task AccountTransactionsServiceTest() 
+        {
+            //Arrange
+            var mockTransactions = new List<Transaction>()
+            {
+                new Transaction()
+                {
+                    id = 1,
+                    account_id = 1,
+                    amount = 100.00m,
+                    date_time = new DateTime(2024,2,2,12,12,0),
+                    success = true
+                },
+                new Transaction()
+                {
+                    id = 2,
+                    account_id = 2,
+                    amount = 150.00m,
+                    date_time = new DateTime(2024,2,2,12,18,0),
+                    success = true
+                },
+            };
+            var mockRepository = new Mock<IRepository<Transaction>>();
+            mockRepository.Setup(repo => repo.GetAllAsync()).ReturnsAsync(mockTransactions);
+
+            //Act
+            var service = new TransactionService(mockRepository.Object);
+            var transactions = await service.GetAllAccountTransactions(1);
+
+            //Assert
+            Assert.Single(transactions);
+            Assert.Equal(1, transactions.Single().account_id);
+            Assert.Equal(100.00m, transactions.Single().amount);
+        }
+
+        [Fact]
+        public async Task AccountTransactionsServiceNegativeTest() 
+        {
+            //Arrange
+            var mockTransactions = new List<Transaction>()
+            {
+                new Transaction()
+                {
+                    id = 1,
+                    account_id = 1,
+                    amount = 100.00m,
+                    date_time = new DateTime(2024,2,2,12,12,0),
+                    success = true
+                },
+                new Transaction()
+                {
+                    id = 2,
+                    account_id = 1,
+                    amount = 50.00m,
+                    date_time = new DateTime(2024,2,2,12,18,0),
+                    success = true
+                },
+            };
+            var mockRepository = new Mock<IRepository<Transaction>>();
+            mockRepository.Setup(repo => repo.GetAllAsync()).ReturnsAsync(mockTransactions);
+
+            //Act
+            var service = new TransactionService(mockRepository.Object);
+            var transactions = await service.GetAllAccountTransactions(1);
+
+            //Assert
+            Assert.Equal(2,transactions.Count());
         }
     }
 }

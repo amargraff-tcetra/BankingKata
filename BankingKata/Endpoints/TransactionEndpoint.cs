@@ -16,7 +16,7 @@ namespace BankingKata.Endpoints
         public override async Task HandleAsync(TransactionRequest request, CancellationToken ct)
         {
             Transaction transaction = Map.ToEntity(request);
-            //TODO: Write transaction to database using Service and get back balance
+            //TODO: Write transaction to database using Service and get back balance, assign balance in transaction.
             var response = Map.FromEntity(transaction);
             await SendAsync(response);
         }
