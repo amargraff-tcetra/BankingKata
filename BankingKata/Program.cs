@@ -1,23 +1,35 @@
+using BankingKata.Contexts;
 using BankingKata.Models;
 using BankingKata.Repository;
 using FastEndpoints;
-using FastEndpoints.Security;
 using FastEndpoints.Swagger;
-using Microsoft.OpenApi.Models;
-using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IRepository<Transaction>, TransactionRepository>();
 builder.Services
-    .AddFastEndpoints()
-    .SwaggerDocument();
+.AddFastEndpoints()
+.SwaggerDocument();
+
+var useInMemoryDatabase = builder.Configuration.GetValue<bool>("USE_IN_MEMORY_DATABASE");
+
+if (useInMemoryDatabase)
+{
+    var dbName = Guid.NewGuid().ToString();
+    builder.Services.AddDbContext<BankDbContext>((options,context) => context.UseInMemoryDatabase(dbName));
+}
+else
+{
+    // Use a real database connection string from configuration
+    var connectionString = builder.Configuration.GetConnectionString("DB_CONNECTION_STRING");
+    builder.Services.AddDbContext<BankDbContext>(options => options.UseSqlServer(connectionString));
+}
 
 var app = builder.Build();
 
